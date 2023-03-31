@@ -22,12 +22,6 @@ export async function fetchPopularFilms(pageNum) {
     try {       
         const response = await axios.get(API_URL, options);
         return response.data;
-        //   console.log(response.data);
-    //   renderFilmGallery(response.data);
-        //render(response.data); 
-    //   notification(
-    //   response.data.hits.length,
-    //   response.data.total);
 
     } catch (error) {
       console.log(error);

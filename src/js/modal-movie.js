@@ -7,16 +7,16 @@
 
 // Функция которую нужно вызвать что бы закрыть модалку
 
-const modal = document.querySelector('.js-modal');
+import refs from "./refs";
 
 function modalClose() {
-  modal.classList.add('visually-hidden');
+  refs.modal.classList.add('visually-hidden');
   window.removeEventListener('keydown', onCloseModalKey);
 };
 
 // Функция закрытия модалки при нажатии по бекдропу
 
-modal.addEventListener('click', onClodeModalClick);
+refs.modal.addEventListener('click', onClodeModalClick);
 
 function onClodeModalClick(e) {
   if (e.target === e.currentTarget) {
@@ -31,6 +31,11 @@ function onCloseModalKey(e) {
     return
   } modalClose();
 };
+
+function onCardClick(e) {
+  console.log('hhhhh');
+  refs.modal.classList.remove('visually-hidden');
+}
 
 // Функция которорая ожидает обьект и рендерит разметку для модалки
 
@@ -96,3 +101,5 @@ function renderMarkupModalMovie() {
 const modalMovie = document.querySelector('.modal-movie');
 
 modalMovie.innerHTML = renderMarkupModalMovie();
+
+refs.card.addEventListener('onclick',onCardClick)
