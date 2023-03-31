@@ -1,19 +1,29 @@
-export function createMarkupOneCard(data) {
-    const genres = data.genres.map(genre => `${genre}`).join(', ');
-    const markup = `
-    <div class="card">
-        <div class="card__image">
-            <img src="${data.image}" alt="${data.title}">
-        </div>
-        <div class="card__content">
-            <div class="card__title">${data.title}</div>
-            <div class="card__genres">
-                <div>${genres} | ${data.year}</div>
-            </div>
-        </div>
-    </div>
+import refs from "./refs";
+import { genres } from "./genres";
+
+export function renderFilmGallery(data) {
+        let markupItem = '';
+        let markup = '';
+    for(const result of data.results){
+        const genres_ids = result.genre_ids.join(', ');
+       // const genres_names = genres.filter(genre => result.gen_ids.includes(genre.id))
+        markupItem = `
+         <div class="film-item">
+             <div class="card__image">
+                 <img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}">
+             </div>
+             <div class="card__content">
+                 <div class="card__title">${result.title}</div>
+                 <div class="card__genres">
+                     <div>${genres_ids} | ${result.release_date}</div>
+                 </div>
+             </div>
+         </div>
     `;
-    return markup;
+    markup += markupItem;
+    console.log(markup);
+    }
+    refs.gallery.insertAdjacentHTML('beforeend',markup);
 }
 //Desctop
 //gap 32 16
