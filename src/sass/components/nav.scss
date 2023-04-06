@@ -1,0 +1,11 @@
+.nav-list{
+    display: flex;
+    align-items: center;
+    gap: 39px;
+}
+
+.nav-link{
+    line-height: 1.17;
+    text-transform: uppercase;
+    color: var(--link-text);
+}

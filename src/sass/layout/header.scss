@@ -1,0 +1,15 @@
+.header-container{
+    background-color: rgba(0, 0, 0, 0.56);
+    background-image: url(../images/header/abstract-background-with-red-lines.jpg);
+
+    margin: 0 auto;
+    padding: 40px 20px 44px 20px;
+    width: 320px;
+    height: 230px;
+}
+
+.logo-nav-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
