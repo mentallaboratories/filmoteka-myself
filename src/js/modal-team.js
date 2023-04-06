@@ -1,1 +1,0 @@
-import { BasicLightBox } from "basiclightbox";
