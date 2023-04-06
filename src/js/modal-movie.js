@@ -102,4 +102,4 @@ const modalMovie = document.querySelector('.modal-movie');
 
 modalMovie.innerHTML = renderMarkupModalMovie();
 
-refs.card.addEventListener('onclick',onCardClick)
+refs.card.addEventListener('click',onCardClick)

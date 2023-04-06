@@ -21,11 +21,12 @@ export function renderFilmGallery(data) {
              </div>
          </div>
     `;
+    console.log(markup);
     markup += markupItem;
     }
-    refs.gallery.innerHTML = markup;
-    //refs.gallery.insertAdjacentHTML('beforeend',markup);
+    //refs.gallery.innerHTML = markup;
+    refs.gallery.insertAdjacentHTML('beforeend',markup);
 }
 
-const getGenreNamesFromId = (id) =>
+const getGenreNamesFromId = (id) => 
     genreNames = genres.filter(genre => id.includes(genre.id)).map(genre=>genre.name).join(', ');
