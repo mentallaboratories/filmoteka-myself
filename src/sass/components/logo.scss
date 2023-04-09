@@ -20,7 +20,4 @@
     line-height: 1.17;
 
     color: var(--link-text);
-    @include tablet{
-        display: inline-block;
-    }
 }
