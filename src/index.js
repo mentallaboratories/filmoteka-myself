@@ -62,6 +62,8 @@ export function onFilmCardClick(e){
         else{
             console.log('click!! Remove "visually-hidden" class from modal');
             console.log(e.target.closest('li'));
+            const cardEl = e.target.closest('li');
+            console.log(cardEl.getAttribute('id'));
         }
      
 }

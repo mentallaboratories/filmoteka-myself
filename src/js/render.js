@@ -3,24 +3,19 @@ import {refs} from './refs';
 export async function renderFilmGallery(results){
    
     try{
-           const markup = results.map(result => {
-            const id = result.id;
-            const poster = result.poster_path;
-            const genres = result.genre_ids.join(', ');
-            const title = result.title;
-            const released = result.release_date;
-            refs.filmList.insertAdjacentHTML('beforeend', `<li class="film-item" id="${id}">
-            <img class="film-poster" src="https://image.tmdb.org/t/p/w500/${poster}" width="500" height="auto" alt="${title}">
+           const markup = results.map(result => 
+            `<li class="film-item" id="${result.id}">
+            <img class="film-poster" src="https://image.tmdb.org/t/p/w500/${result.poster_path}" width="500" height="auto" alt="${result.title}">
             <div class="film-info">
-                <h2 class="film-title">${title}</h2>
-                <p class="film-specs">${genres}| ${released}</p>
+                <h2 class="film-title">${result.title}</h2>
+                <p class="film-specs">${result.genre_ids.join(', ')}| ${result.release_date}</p>
             </div>
-        </li>`)
-           
-        });
+        </li>`
+           ).join("");
+
         
         // refs.filmList.innerHTML = '';
-        // refs.filmList.insertAdjacentHTML('beforeend', markup);
+        refs.filmList.insertAdjacentHTML('beforeend', markup);
 
         
     }
