@@ -18,27 +18,37 @@ export async function fetchPopularMovies(page){
     try{
         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular`, {params});
 // повертається респонс-обєкт-масив результатів
+console.log(response.data);
         return response.data.results;
     }
     catch (error){
         console.log(error);
     }
 }
+
 // береться масив результатів з функції та методом map витягуються необхідні дані
-export async function getFilmData(results){
+export async function renderFilmGallery(results){
+    let markup = ''
     try{
-            filmData = results.map(result => {
+            results.map(result => {
             const poster = result.poster_path;
             const genres = result.genre_ids.join(', ');
             const title = result.title;
-            console.log('poster', poster);
-            console.log('genres', genres);
-            console.log('title', title);
-            renderFilmCard();
-            console.log(renderFilmCard());
+            const released = result.release_date;
+            return `<li class="film-item" id="film-item">
+            <img class="film-poster" src="https://www.themoviedb.org/t/p/w550/${poster}" width="500" height="auto" alt="${title}">
+            <div class="film-info">
+                <h2 class="film-title">${title}</h2>
+                <p class="film-specs">${genres}| ${released}</p>
+            </div>
+        </li>`
+        }).join(' ');
+        console.log();
+        
+        // refs.filmList.innerHTML = '';
+        // refs.filmList.insertAdjacentHTML('beforeend', markup);
 
-        } );
-        console.log(filmData);
+        
     }
     catch (error){
         console.log(error);
@@ -46,15 +56,16 @@ export async function getFilmData(results){
 }
 
 //розмітка карток
-export async function renderFilmCard(poster,genres,title){
-    try{
-        return `<p>this is a poster link ${poster}</p>
-        <p>these are genres ${genres}</p>
-        <p> this is a title ${title}</p>`
-    }
-    catch(error){
-        console.log(error);
-    }
-}
+// export async function renderFilmCard(poster,genres,title){
+//     try{
+//         `<p>this is a poster link ${poster}</p>
+//         <p>these are genres ${genres}</p>
+//         <p> this is a title ${title}</p>`
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+// }
 
-fetchPopularMovies(4).then(getFilmData);
+
+fetchPopularMovies(4).then(renderFilmGallery);

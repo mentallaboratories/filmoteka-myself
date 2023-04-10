@@ -1,0 +1,32 @@
+.film-item{
+    width: 280px;
+    height: 443px;
+    border: 1px solid red;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.film-poster{
+    width: 280px;
+    height: 402px;
+    border-radius: 5px;
+    object-fit: fill;
+}
+
+.film-info{
+
+}
+
+.film-title{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: uppercase;
+}
+
+.film-specs{
+    line-height: 1.33;
+    color: var(--accent);
+}
