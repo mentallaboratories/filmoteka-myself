@@ -1,11 +1,24 @@
+.film-list{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
 .film-item{
     width: 280px;
     height: 443px;
-    border: 1px solid red;
+    //border: 1px solid red;
 
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    cursor: pointer;
+    &:focus, &:hover{
+        border: 1px solid var(--accent);
+        border-radius: 5px;
+    }
 }
 
 .film-poster{
@@ -15,9 +28,6 @@
     object-fit: fill;
 }
 
-.film-info{
-
-}
 
 .film-title{
     font-weight: 500;
